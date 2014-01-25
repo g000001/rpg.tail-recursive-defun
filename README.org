@@ -1,0 +1,24 @@
+* 70's rpg's tail-recursive-defun
+- http://www.saildart.org/UTIL.2%5BAID,LSP%5D
+
+#+BEGIN_SRC
+(tail-recursive-defun fib (n a1 a2) 
+  (cond ((zerop n) a2)
+        ((= 1 n) a1)
+        (t (tail-recur (1- n) (+ a1 a2) a1))))
+==>
+(DEFUN FIB (N A1 A2)
+  (PROG ()
+    #:G7855
+        (RETURN 
+          (PROGN 
+            (COND ((ZEROP N) A2)
+                  ((= 1 N) A1)
+                  (T ((LAMBDA (#:G7857)
+                        (SETQ N (1- N))
+                        (SETQ A1 (+ A1 A2))
+                        (SETQ A2 #:G7857)
+                        (GO #:G7855))
+                      A1)))))))
+#+END_SRC
+
