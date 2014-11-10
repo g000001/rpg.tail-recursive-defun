@@ -5,7 +5,8 @@
 
 (defpackage :rpg.tail-recursive-defun
   (:use)
-  (:export :tail-recursive-defun))
+  (:export :tail-recursive-defun
+           :tail-recur))
 
 
 (defpackage :rpg.tail-recursive-defun.internal
